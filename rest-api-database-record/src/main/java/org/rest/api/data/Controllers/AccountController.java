@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/account")
 public class AccountController {
@@ -19,5 +21,9 @@ public class AccountController {
     @PostMapping(value = "/save")
     public @ResponseBody Accounts createAccount(@RequestBody Accounts account){
         return accountService.saveAccount(account);
+    }
+    @GetMapping(value = "/show")
+    public @ResponseBody List<Accounts> showAccount(){
+        return accountService.showAccounts();
     }
 }

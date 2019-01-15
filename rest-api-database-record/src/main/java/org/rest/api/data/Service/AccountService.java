@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AccountService {
 
@@ -21,4 +23,8 @@ public class AccountService {
         return accountsDAO.save(account);
     }
 
+    public List<Accounts> showAccounts(){
+        log.info("Account table is selected!");
+        return accountsDAO.findAll();
+    }
 }
